@@ -1,0 +1,20 @@
+{
+  "name": "@journeyapps-platform/recon-http-resource-provider",
+  "repository": "https://github.com/journeyapps-platform/recon",
+  "version": "5.0.2",
+  "main": "dist/index",
+  "types": "dist/index",
+  "license": "UNLICENCED",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@journeyapps-platform/micro-logger": "^3.0.0",
+    "@journeyapps-platform/micro-tracing": "^4.0.0",
+    "@journeyapps-platform/recon-entity-resolver": "workspace:^",
+    "@journeyapps-platform/sdk-common": "^5.5.0"
+  }
+}

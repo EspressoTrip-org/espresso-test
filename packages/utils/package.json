@@ -1,0 +1,20 @@
+{
+  "name": "@journeyapps-platform/cardinal-utils",
+  "repository": "https://github.com/journeyapps-platform/cardinal",
+  "version": "5.0.2",
+  "main": "dist/index",
+  "types": "dist/index",
+  "license": "UNLICENCED",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@journeyapps-platform/types-cardinal": "workspace:^",
+    "bson": "6.4.0",
+    "mongodb": "^6.4.0"
+  }
+}

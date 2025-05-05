@@ -1,0 +1,30 @@
+{
+  "name": "@journeyapps-platform/cardinal-permissions-manager",
+  "repository": "https://github.com/journeyapps-platform/cardinal",
+  "version": "8.0.4",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@journeyapps-platform/micro-authorizers": "^6.0.0",
+    "@journeyapps-platform/micro-db": "^3.0.0",
+    "@journeyapps-platform/micro-kafka": "^8.0.0",
+    "@journeyapps-platform/micro-logger": "^3.0.0",
+    "@journeyapps-platform/sdk-cardinal": "workspace:^",
+    "@journeyapps-platform/sdk-common": "^5.5.0",
+    "@journeyapps-platform/types-cardinal": "workspace:^",
+    "bson": "6.4.0",
+    "kafkajs": "^2.2.4",
+    "lru-cache": "^10.2.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.8"
+  }
+}

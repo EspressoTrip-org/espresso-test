@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`auth > can read policies assigned to token 1`] = `
+[
+  {
+    "id": "5e6f5519ede3631176831f4c",
+    "org_id": "5f2ab36c60d2294576efa646",
+    "statements": [],
+  },
+]
+`;
+
+exports[`auth > can read policies assigned to user 1`] = `
+[
+  {
+    "id": "5e6f5519ede3631176831f4c",
+    "org_id": "5f2ab36c60d2294576efa646",
+    "statements": [],
+  },
+]
+`;

@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`roles > role-crud > deleting a role should update user assignments 1`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "developer",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.ROLE_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "role_ids": [
+        "5e6f5519ede3631176831f4c",
+      ],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "developer",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.ROLE_DELETED",
+  },
+]
+`;
+
+exports[`roles > role-crud > should list roles by scope 1`] = `
+[
+  {
+    "name": "developer",
+    "org_id": "123",
+    "policy_ids": [],
+  },
+]
+`;
+
+exports[`roles > role-crud > should successfully update a role 1`] = `
+{
+  "name": "Updated Role",
+  "org_id": "123",
+  "policy_ids": [],
+}
+`;
+
+exports[`roles > role-crud > should successfully update a role 2`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "developer",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.ROLE_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "Updated Role",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.ROLE_UPDATED",
+  },
+]
+`;

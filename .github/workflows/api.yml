@@ -1,0 +1,48 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: environment to deploy
+        required: true
+      payload:
+        description: trigger payload
+        required: false
+        default: '{}'
+
+env:
+  SECRETS: ${{ toJSON(secrets) }}
+  ENVIRONMENT: ${{ github.event.inputs.environment }}
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        repository: journeyapps-platform/ci-actions
+        token: ${{ secrets.SHARED_GH_TOKEN }}
+        path: .github/ci
+        ref: v1
+
+    - uses: ./.github/ci/actions/docker-build
+      name: Docker Build
+      with:
+        notify: true
+        push: true
+
+    - uses: ./.github/ci/actions/setup-tools
+      name: Setup Tools
+      with:
+        pulumi-version: 3.127.0
+        pnpm-version: 9
+
+    - uses: ./.github/ci/actions/micro-deploy
+      name: Pulumi Stack Deploy
+      with:
+        environment: ${{ github.event.inputs.environment }}
+        payload: ${{ github.event.inputs.payload }}
+        preview: 'false'

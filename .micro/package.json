@@ -1,0 +1,13 @@
+{
+  "name": "stack-template",
+  "version": "3.0.3",
+  "private": true,
+  "dependencies": {
+    "@journeyapps-platform/kubernetes-manifests": "10.1.5",
+    "@pulumi/aws": "6.48.0",
+    "@pulumi/kubernetes": "4.15.0",
+    "@pulumi/pulumi": "3.128.0",
+    "@types/node": "22.1.0",
+    "typescript": "5.5.4"
+  }
+}

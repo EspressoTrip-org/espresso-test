@@ -1,0 +1,2855 @@
+{
+  "definitions": {
+    "ResourceSelector": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/app-container:build"
+        },
+        {
+          "$ref": "#/definitions/app-container:configuration"
+        },
+        {
+          "$ref": "#/definitions/app-container:private-key"
+        },
+        {
+          "$ref": "#/definitions/app-container:version"
+        },
+        {
+          "$ref": "#/definitions/build-container"
+        },
+        {
+          "$ref": "#/definitions/deployment"
+        },
+        {
+          "$ref": "#/definitions/opsql:pipeline"
+        },
+        {
+          "$ref": "#/definitions/opsql:user"
+        },
+        {
+          "$ref": "#/definitions/web-configuration"
+        },
+        {
+          "$ref": "#/definitions/app"
+        },
+        {
+          "$ref": "#/definitions/container-depot-token"
+        },
+        {
+          "$ref": "#/definitions/draft"
+        },
+        {
+          "$ref": "#/definitions/integration"
+        },
+        {
+          "$ref": "#/definitions/intercom:ticket"
+        },
+        {
+          "$ref": "#/definitions/organization"
+        },
+        {
+          "$ref": "#/definitions/plan-blueprint"
+        },
+        {
+          "$ref": "#/definitions/plan"
+        },
+        {
+          "$ref": "#/definitions/policy"
+        },
+        {
+          "$ref": "#/definitions/railgun:configuration"
+        },
+        {
+          "$ref": "#/definitions/role"
+        },
+        {
+          "$ref": "#/definitions/sso-config"
+        },
+        {
+          "$ref": "#/definitions/token"
+        },
+        {
+          "$ref": "#/definitions/user"
+        },
+        {
+          "$ref": "#/definitions/powersync-alerts:rule"
+        },
+        {
+          "$ref": "#/definitions/powersync-instance"
+        }
+      ]
+    },
+    "app-container:build": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Container branded build",
+              "const": "app-container:build"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app-container:configuration"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Container branded build",
+              "const": "app-container:build"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app-container:configuration"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "app-container:configuration": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A container configuration for multiple platforms",
+              "const": "app-container:configuration"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A container configuration for multiple platforms",
+              "const": "app-container:configuration"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "app-container:private-key": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A container private key for iOS signing",
+              "const": "app-container:private-key"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A container private key for iOS signing",
+              "const": "app-container:private-key"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "app-container:version": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Container version blueprint",
+              "const": "app-container:version"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Container version blueprint",
+              "const": "app-container:version"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "build-container": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A container used for building app source code",
+              "const": "build-container"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A container used for building app source code",
+              "const": "build-container"
+            },
+            "labels": {
+              "properties": {
+                "user_id": {
+                  "type": "string",
+                  "description": "To scope access to the user who provisioned the build container. Usually \"$actor.id\""
+                }
+              }
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "deployment": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A JourneyApps Application deployment",
+              "const": "deployment"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A JourneyApps Application deployment",
+              "const": "deployment"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "opsql:pipeline": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "An Opsql pipeline replicates selected App Data to another Database",
+              "const": "opsql:pipeline"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "An Opsql pipeline replicates selected App Data to another Database",
+              "const": "opsql:pipeline"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "opsql:user": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "User management for Opsql pipelines",
+              "const": "opsql:user"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "User management for Opsql pipelines",
+              "const": "opsql:user"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "web-configuration": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A master web container version",
+              "const": "web-configuration"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A master web container version",
+              "const": "web-configuration"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "app": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A JourneyApps Application",
+              "const": "app"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A JourneyApps Application",
+              "const": "app"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "container-depot-token": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A token which grants pull access to the shared container registry.",
+              "const": "container-depot-token"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A token which grants pull access to the shared container registry.",
+              "const": "container-depot-token"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "draft": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A draft version of a file in an application's source code",
+              "const": "draft"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/user"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A draft version of a file in an application's source code",
+              "const": "draft"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/user"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {
+                "type": {
+                  "enum": [
+                    "APP",
+                    "USER"
+                  ],
+                  "description": "The type of draft"
+                },
+                "shared": {
+                  "enum": [
+                    "true",
+                    "false"
+                  ],
+                  "description": "If the draft is shared with other users"
+                }
+              }
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "integration": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A 3rd party service integration",
+              "const": "integration"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A 3rd party service integration",
+              "const": "integration"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "intercom:ticket": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Support ticket",
+              "const": "intercom:ticket"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Support ticket",
+              "const": "intercom:ticket"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "organization": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "The top level domain object which represents the scope",
+              "const": "organization"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "The top level domain object which represents the scope",
+              "const": "organization"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "plan-blueprint": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Blueprints are pricing plan templates used to create subscription plans, some of which are applied automatically by system events (such as free/pro plan etc..)",
+              "const": "plan-blueprint"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Blueprints are pricing plan templates used to create subscription plans, some of which are applied automatically by system events (such as free/pro plan etc..)",
+              "const": "plan-blueprint"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "plan": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Represents a billing subscription scoped to an organization. Orgs may have multiple plans, each with different set of configuration for reporting on metered parameters.",
+              "const": "plan"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Represents a billing subscription scoped to an organization. Orgs may have multiple plans, each with different set of configuration for reporting on metered parameters.",
+              "const": "plan"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "policy": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A Cardinal permissions policy",
+              "const": "policy"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A Cardinal permissions policy",
+              "const": "policy"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "railgun:configuration": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A configuration and set of rules that notifies on events (webhook, email, etc..).",
+              "const": "railgun:configuration"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A configuration and set of rules that notifies on events (webhook, email, etc..).",
+              "const": "railgun:configuration"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "role": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A collection of policies for an Organization",
+              "const": "role"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A collection of policies for an Organization",
+              "const": "role"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "sso-config": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "An enrolment SSO configuration",
+              "const": "sso-config"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "An enrolment SSO configuration",
+              "const": "sso-config"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "token": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A Cardinal token which represents an actor",
+              "const": "token"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A Cardinal token which represents an actor",
+              "const": "token"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "user": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A JourneyApps user",
+              "const": "user"
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "A JourneyApps user",
+              "const": "user"
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "powersync-alerts:rule": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Represents various alerting rules (metric and issues) for a PowerSync instance",
+              "const": "powersync-alerts:rule"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/powersync-instance"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Represents various alerting rules (metric and issues) for a PowerSync instance",
+              "const": "powersync-alerts:rule"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/powersync-instance"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "powersync-instance": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Represents a PowerSync instance.",
+              "const": "powersync-instance"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "id": {
+              "$ref": "#/definitions/$Or<string>"
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "description": "Represents a PowerSync instance.",
+              "const": "powersync-instance"
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/app"
+                  }
+                ]
+              }
+            },
+            "labels": {
+              "properties": {}
+            }
+          },
+          "required": [
+            "labels",
+            "model"
+          ]
+        }
+      ]
+    },
+    "PolicyStatement": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "app-container:build"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read build status"
+                    },
+                    {
+                      "const": "write",
+                      "title": "Update build status"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Trigger branded build compilation"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete a branded build"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "app-container:configuration"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read container configuration"
+                    },
+                    {
+                      "const": "write",
+                      "title": "Update container features and settings"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create new container configuration"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete container configuration"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "app-container:private-key"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "write",
+                      "title": "Create a new private key"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "app-container:version"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read container versions"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "build-container"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read build container properties"
+                    },
+                    {
+                      "const": "execute",
+                      "title": "Execute operations on the build container"
+                    },
+                    {
+                      "const": "provision",
+                      "title": "Provision a build container for building app source code"
+                    },
+                    {
+                      "const": "deprovision",
+                      "title": "Abort a build container"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "deployment"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read deployment properties, users, dashboards and Data-model"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new deployment"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete a deployment"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update a deployment"
+                    },
+                    {
+                      "const": "info",
+                      "title": "Read metrics and other info about a deployment"
+                    },
+                    {
+                      "const": "deploy",
+                      "title": "Deploy updates to a deployment"
+                    },
+                    {
+                      "const": "provision",
+                      "title": "Provision a user for deployment"
+                    },
+                    {
+                      "const": "deprovision",
+                      "title": "Deprovision/lock a user from a deployment"
+                    },
+                    {
+                      "const": "upload:diagnostics",
+                      "title": "Update diagnostics reports"
+                    },
+                    {
+                      "const": "read:diagnostics",
+                      "title": "Read diagnostics"
+                    },
+                    {
+                      "const": "elevate",
+                      "title": "Elevate permission to access audit logs and other sensitive data"
+                    },
+                    {
+                      "const": "create:objects",
+                      "title": "Create new objects in the backend"
+                    },
+                    {
+                      "const": "read:objects",
+                      "title": "Read objects in the backend"
+                    },
+                    {
+                      "const": "create:app-users",
+                      "title": "Create new app users in the backend"
+                    },
+                    {
+                      "const": "read:app-users",
+                      "title": "Read app users in the backend"
+                    },
+                    {
+                      "const": "update:app-users",
+                      "title": "Update app users in the backend"
+                    },
+                    {
+                      "const": "delete:app-users",
+                      "title": "Delete app users in the backend"
+                    },
+                    {
+                      "const": "create:web-users",
+                      "title": "[DEPRECATED] Create web users in the backend"
+                    },
+                    {
+                      "const": "read:web-users",
+                      "title": "[DEPRECATED] Read web users in the backend"
+                    },
+                    {
+                      "const": "update:web-users",
+                      "title": "[DEPRECATED] Update web users in the backend"
+                    },
+                    {
+                      "const": "remove:web-users",
+                      "title": "[DEPRECATED] Remove web users in the backend"
+                    },
+                    {
+                      "const": "manage:grants",
+                      "title": "[DEPRECATED] Manage backend grants for data-browser"
+                    },
+                    {
+                      "const": "manage:api",
+                      "title": "Manage backend API credentials"
+                    },
+                    {
+                      "const": "manage:indexes",
+                      "title": "CRUD backend indexes"
+                    },
+                    {
+                      "const": "manage:webhooks",
+                      "title": "Manage backend webhooks"
+                    },
+                    {
+                      "const": "read:audit-logs",
+                      "title": "Read backend audit logs"
+                    },
+                    {
+                      "const": "read:sync-diagnostics",
+                      "title": "Read backend sync diagnostics"
+                    },
+                    {
+                      "const": "read:diagnostic-reports",
+                      "title": "Read backend diagnostics reports"
+                    },
+                    {
+                      "const": "update:objects",
+                      "title": "Update backend objects"
+                    },
+                    {
+                      "const": "delete:objects",
+                      "title": "Delete backend objects"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "opsql:pipeline"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "list",
+                      "title": "List pipelines"
+                    },
+                    {
+                      "const": "read-logs",
+                      "title": "Read pipeline logs"
+                    },
+                    {
+                      "const": "provision",
+                      "title": "Provision pipelines"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete pipelines"
+                    },
+                    {
+                      "const": "get",
+                      "title": "Get pipelines"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "opsql:user"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "list",
+                      "title": "List pipeline users"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete opsql pipeline users"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "web-configuration"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read web container versions"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "app"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read an app"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create an app"
+                    },
+                    {
+                      "const": "system-create",
+                      "title": "Create an app resource on accounts hub as part of the app creation process (Use with caution)."
+                    },
+                    {
+                      "const": "write",
+                      "title": "Write changes to an app's source code"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete an app"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update an app"
+                    },
+                    {
+                      "const": "update-trial",
+                      "title": "Allows an app to be upgraded or downgraded from a trial."
+                    },
+                    {
+                      "const": "update-locks",
+                      "title": "Update an app's locked state (Locked apps prevent user access due to expired trials / overdue payments etc..)."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "container-depot-token"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new token and return the secret"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read token metadata"
+                    },
+                    {
+                      "const": "revoke",
+                      "title": "Revoke a token rendering it inoperable."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "draft"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read draft source"
+                    },
+                    {
+                      "const": "write",
+                      "title": "Write updates to source"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update draft properties"
+                    },
+                    {
+                      "const": "discard",
+                      "title": "Discard draft changes"
+                    },
+                    {
+                      "const": "revert",
+                      "title": "Revert draft to last commit"
+                    },
+                    {
+                      "const": "commit",
+                      "title": "Commit draft changes to source"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "integration"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new integration"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Remove an integration from an Organization"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Remove obfuscated integration properties"
+                    },
+                    {
+                      "const": "acquire-token",
+                      "title": "Read integration token"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "intercom:ticket"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read tickets and ticket replies."
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new support ticket."
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update ticket metadata."
+                    },
+                    {
+                      "const": "reply",
+                      "title": "Reply to a ticket."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "organization"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read an organization"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new organization"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update an organization"
+                    },
+                    {
+                      "const": "update-billing",
+                      "title": "Update an organization's billing information associated with plans."
+                    },
+                    {
+                      "const": "update-locks",
+                      "title": "Update an organization's locks including locking/unlocking the organization itself."
+                    },
+                    {
+                      "const": "manage-developer-invitations",
+                      "title": "Manage developer invitations for an organization"
+                    },
+                    {
+                      "const": "user-app-metrics",
+                      "title": "Read user app metrics for an organization"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "plan-blueprint"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read blueprints"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new blueprint"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete an existing blueprint (managed blueprints cannot be deleted)"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update an existing blueprint (managed blueprints can also be updated)"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "plan"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read plan."
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new plan, potentially from a blueprint."
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete an existing plan."
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update an existing plan."
+                    },
+                    {
+                      "const": "upgrade",
+                      "title": "Upgrade a plan."
+                    },
+                    {
+                      "const": "downgrade",
+                      "title": "Downgrade a plan."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "policy"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read policy statements"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new policy"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete a policy"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update policy statements"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "railgun:configuration"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create new configurations."
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete configurations (and associated invocation entries)."
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update the configuration (includes pausing and resuming)."
+                    },
+                    {
+                      "const": "read",
+                      "title": "View the configuration and its underlying rules."
+                    },
+                    {
+                      "const": "test",
+                      "title": "Send a test payload/notification based on the underlying configuration rules."
+                    },
+                    {
+                      "const": "read-invocations",
+                      "title": "Read invocations created by this configuration."
+                    },
+                    {
+                      "const": "delete-invocations",
+                      "title": "Delete any completed or pending invocations created by this configuration."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "role"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new role"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update role policies"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read role policies"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete role (does not delete associated policies)"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "sso-config"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "List SSO configurations for auth scope"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a SSO configuration"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete a SSO configuration"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update a SSO configuration"
+                    },
+                    {
+                      "const": "info",
+                      "title": "Read specific SSO configuration from Org and ID"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "token"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new token with no policies attached"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update token description and policy assignments"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read token description and policy assignments"
+                    },
+                    {
+                      "const": "revoke",
+                      "title": "Revoke a token rendering it inoperable."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "user"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read a user's info"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a new user"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete a user"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update a user"
+                    },
+                    {
+                      "const": "read-metrics",
+                      "title": "Read users OXIDE usage metrics"
+                    },
+                    {
+                      "const": "manage-assignments",
+                      "title": "Manage user's permissions and policy assignments"
+                    },
+                    {
+                      "const": "manage-org-role-assignments",
+                      "title": "Manage user's role assignments in an org"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "powersync-alerts:rule"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read a PowerSync Alert Rule"
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a PowerSync Alert Rule (of any sub-type)"
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Read a PowerSync Alert Rule"
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update a PowerSync Alert Rule"
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resources": {
+                "items": {
+                  "properties": {
+                    "selector": {
+                      "properties": {
+                        "model": {
+                          "const": "powersync-instance"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "const": "*",
+                      "title": "Allows all actions"
+                    },
+                    {
+                      "const": "read",
+                      "title": "Read a PowerSync instance."
+                    },
+                    {
+                      "const": "create",
+                      "title": "Create a PowerSync instance."
+                    },
+                    {
+                      "const": "delete",
+                      "title": "Delete a PowerSync instance."
+                    },
+                    {
+                      "const": "update",
+                      "title": "Update a PowerSync instance."
+                    },
+                    {
+                      "const": "view-logs",
+                      "title": "View logs generated by a PowerSync instance."
+                    }
+                  ],
+                  "additionalItems": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Resource": {
+      "type": "object",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "selector": {
+                "properties": {
+                  "model": {
+                    "anyOf": [
+                      {
+                        "const": "app-container:build"
+                      },
+                      {
+                        "const": "app-container:configuration"
+                      },
+                      {
+                        "const": "app-container:private-key"
+                      },
+                      {
+                        "const": "deployment"
+                      },
+                      {
+                        "const": "opsql:pipeline"
+                      },
+                      {
+                        "const": "opsql:user"
+                      },
+                      {
+                        "const": "web-configuration"
+                      },
+                      {
+                        "const": "app"
+                      },
+                      {
+                        "const": "container-depot-token"
+                      },
+                      {
+                        "const": "draft"
+                      },
+                      {
+                        "const": "integration"
+                      },
+                      {
+                        "const": "intercom:ticket"
+                      },
+                      {
+                        "const": "plan"
+                      },
+                      {
+                        "const": "railgun:configuration"
+                      },
+                      {
+                        "const": "role"
+                      },
+                      {
+                        "const": "sso-config"
+                      },
+                      {
+                        "const": "user"
+                      },
+                      {
+                        "const": "powersync-alerts:rule"
+                      },
+                      {
+                        "const": "powersync-instance"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "scope"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "selector": {
+                "properties": {
+                  "model": {
+                    "anyOf": [
+                      {
+                        "const": "app-container:version"
+                      },
+                      {
+                        "const": "build-container"
+                      },
+                      {
+                        "const": "organization"
+                      },
+                      {
+                        "const": "plan-blueprint"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "scope"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "managed": {
+      "type": "boolean"
+    },
+    "statements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "effect": {
+            "type": "string",
+            "enum": [
+              "Allow",
+              "Deny"
+            ]
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scope": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "selector": {
+                  "$ref": "#/definitions/ResourceSelector"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "selector"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "actions",
+          "resources"
+        ]
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "org_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "statements"
+  ]
+}

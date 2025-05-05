@@ -1,0 +1,92 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`label query generation > construct mongodb filter query from label permissions 1`] = `
+{
+  "$and": [
+    {
+      "$or": [
+        {
+          "$and": [
+            {
+              "org_id": {
+                "$in": [
+                  "5ee204dcae8864186979d77f",
+                  "5ee204dcae8864186979d77f",
+                ],
+              },
+            },
+            {
+              "labels.type": {
+                "$in": [
+                  "test",
+                ],
+              },
+            },
+          ],
+        },
+        {
+          "$and": [
+            {
+              "org_id": {
+                "$in": [
+                  "5ee204ddae8864186979d780",
+                  "5ee204ddae8864186979d780",
+                ],
+              },
+            },
+            {
+              "labels.type": {
+                "$in": [
+                  "test",
+                ],
+              },
+            },
+            {
+              "labels.owner": {
+                "$in": [
+                  "abc",
+                ],
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      "name": /\\^app\\.\\*/,
+    },
+  ],
+}
+`;
+
+exports[`label query generation > custom label mapper should produce non-standard query 1`] = `
+{
+  "$and": [
+    {
+      "$or": [
+        {
+          "$and": [
+            {
+              "org_id": {
+                "$in": [
+                  "5ee204ddae8864186979d780",
+                  "5ee204ddae8864186979d780",
+                ],
+              },
+            },
+            {
+              "things.a": "b",
+            },
+            {
+              "things.c": "d",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      "name": /\\^app\\.\\*/,
+    },
+  ],
+}
+`;

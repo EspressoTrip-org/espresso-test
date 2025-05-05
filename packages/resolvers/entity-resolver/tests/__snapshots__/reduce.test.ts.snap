@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`statement-filtering > should handle a single element actions array 1`] = `
+[
+  {
+    "actions": [
+      "a",
+      "b",
+    ],
+    "resources": [
+      {
+        "scope": "123",
+        "selector": {
+          "id": "*",
+          "model": "waffle",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`statement-filtering > should handle a single element actions array 2`] = `
+[
+  {
+    "actions": [
+      "a",
+      "b",
+    ],
+    "resources": [
+      {
+        "scope": "123",
+        "selector": {
+          "id": "*",
+          "model": "waffle",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`statement-filtering > should handle a single element actions array 3`] = `
+[
+  {
+    "actions": [
+      "d",
+    ],
+    "resources": [
+      {
+        "scope": "123",
+        "selector": {
+          "id": "*",
+          "model": "waffle",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`statement-filtering > should handle multiple actions with 'or' 1`] = `
+[
+  {
+    "actions": [
+      "a",
+      "b",
+    ],
+    "resources": [
+      {
+        "scope": "123",
+        "selector": {
+          "id": "*",
+          "model": "waffle",
+        },
+      },
+    ],
+  },
+  {
+    "actions": [
+      "d",
+    ],
+    "resources": [
+      {
+        "scope": "123",
+        "selector": {
+          "id": "*",
+          "model": "waffle",
+        },
+      },
+    ],
+  },
+]
+`;

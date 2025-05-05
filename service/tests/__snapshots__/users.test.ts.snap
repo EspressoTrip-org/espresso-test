@@ -1,0 +1,156 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`users > should update user assignments 1`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [
+    "445",
+  ],
+  "role_ids": [
+    "445",
+  ],
+}
+`;
+
+exports[`users > should update user assignments 2`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "policy_ids": [
+        "445",
+      ],
+      "role_ids": [
+        "445",
+      ],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+]
+`;
+
+exports[`users > should update user assignments via singular API 1`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [
+    "445",
+  ],
+}
+`;
+
+exports[`users > should update user assignments via singular API 2`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [
+    "445",
+  ],
+}
+`;
+
+exports[`users > should update user assignments via singular API 3`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [],
+}
+`;
+
+exports[`users > should update user assignments via singular API 4`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [],
+}
+`;
+
+exports[`users > should update user assignments via singular API 5`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [],
+  "role_ids": [
+    "445",
+  ],
+}
+`;
+
+exports[`users > should update user assignments via singular API 6`] = `
+{
+  "email": "test@journeyapps.com",
+  "org_id": "123",
+  "policy_ids": [],
+  "role_ids": [],
+}
+`;
+
+exports[`users > should update user assignments via singular API 7`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "policy_ids": [
+        "445",
+      ],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "policy_ids": [],
+      "role_ids": [
+        "445",
+      ],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "policy_ids": [],
+      "role_ids": [],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+]
+`;

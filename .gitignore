@@ -1,0 +1,15 @@
+.idea
+.vscode
+.DS_Store
+
+node_modules
+coverage
+.micro/.project/
+dist
+
+.env
+.env.docker
+**/*.tsbuildinfo
+
+yarn-error.log
+npm-error.log

@@ -1,0 +1,27 @@
+{
+  "name": "@journeyapps-platform/recon-event-invalidator",
+  "repository": "https://github.com/journeyapps-platform/recon",
+  "version": "4.0.2",
+  "main": "dist/index",
+  "types": "dist/index",
+  "license": "UNLICENCED",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@journeyapps-platform/micro-kafka": "^8.0.0",
+    "@journeyapps-platform/micro-logger": "^3.0.0",
+    "@journeyapps-platform/micro-tracing": "^4.0.0",
+    "@journeyapps-platform/recon-entity-resolver": "workspace:^",
+    "@journeyapps-platform/types-cardinal": "workspace:^",
+    "@journeyapps-platform/types-hub-resource-events": "2.0.0",
+    "kafkajs": "^2.2.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.8"
+  }
+}

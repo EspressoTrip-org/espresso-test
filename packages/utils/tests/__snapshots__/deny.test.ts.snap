@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`deny query construction > construct query with wildcards 1`] = `
+{
+  "$and": [
+    {
+      "$or": [
+        {
+          "_id": {
+            "$in": [
+              "5ee204dcae8864186979d77f",
+            ],
+          },
+          "org_id": {
+            "$in": [
+              "5ee204dcae8864186979d77f",
+              "5ee204dcae8864186979d77f",
+            ],
+          },
+        },
+        {
+          "_id": {
+            "$in": [
+              "5ee204ddae8864186979d780",
+            ],
+          },
+          "org_id": {
+            "$in": [
+              "5ee204ddae8864186979d780",
+              "5ee204ddae8864186979d780",
+            ],
+          },
+        },
+      ],
+    },
+    {
+      "name": /\\^app\\.\\*/,
+    },
+    {
+      "$nor": [
+        {
+          "_id": {
+            "$in": [
+              "5ee204ddae8864186979d780",
+            ],
+          },
+          "org_id": {
+            "$in": [
+              "5ee204dcae8864186979d77f",
+              "5ee204dcae8864186979d77f",
+            ],
+          },
+        },
+      ],
+    },
+  ],
+}
+`;

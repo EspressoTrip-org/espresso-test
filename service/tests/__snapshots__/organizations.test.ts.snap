@@ -1,0 +1,2527 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`policies > deleting an org should clean up all associated resources 1`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "test-token",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "policy_ids": [],
+    },
+    "type": "AUTH.TOKEN_DELETED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "test-token-user",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "policy_ids": [],
+      "user_id": "5e6f5519ede3631176831f4d",
+    },
+    "type": "AUTH.TOKEN_DELETED",
+  },
+  {
+    "payload": {
+      "managed": true,
+      "name": "Developer",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "policy_ids": 1,
+    },
+    "type": "AUTH.ROLE_DELETED",
+  },
+  {
+    "payload": {
+      "managed": true,
+      "name": "Owner",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "policy_ids": 1,
+    },
+    "type": "AUTH.ROLE_DELETED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "Perform operations necessary for developing on an app",
+      "managed": true,
+      "name": "developer",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "statements": [
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "user",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "role",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "integration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+            "deploy",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "elevate",
+            "create:objects",
+            "read:objects",
+            "update:objects",
+            "delete:objects",
+            "create:app-users",
+            "read:app-users",
+            "update:app-users",
+            "delete:app-users",
+            "read:web-users",
+            "manage:grants",
+            "manage:api",
+            "manage:indexes",
+            "manage:webhooks",
+            "read:audit-logs",
+            "read:sync-diagnostics",
+            "read:diagnostic-reports",
+            "read:diagnostics",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "view-logs",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-instance",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-alerts:rule",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "execute",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "build-container",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "*",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "draft",
+                "parents": [
+                  {
+                    "id": "$actor.id",
+                    "model": "user",
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "type": "APP",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "shared": "true",
+                  "type": "USER",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:private-key",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "*",
+                "model": "app-container:version",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+            "delete",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:build",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app-container:configuration",
+                    "parents": [
+                      {
+                        "id": "*",
+                        "model": "app",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:configuration",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+            "revoke",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "token",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "test",
+            "delete-invocations",
+            "read-invocations",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "railgun:configuration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "update",
+            "reply",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "intercom:ticket",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    "type": "AUTH.POLICY_DELETED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "The holder of this policy can perform all operations within an organization",
+      "managed": true,
+      "name": "owner",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "statements": [
+        {
+          "actions": [
+            "update-billing",
+            "update",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "upgrade",
+            "downgrade",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "plan",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "acquire-token",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "integration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+            "revoke",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "token",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "manage-developer-invitations",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "role",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "manage-org-role-assignments",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "user",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "policy",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "info",
+            "create",
+            "update",
+            "delete",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "sso-config",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+            "delete",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app",
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "user",
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "deploy",
+            "info",
+            "provision",
+            "deprovision",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "update",
+            "delete",
+            "elevate",
+            "create:objects",
+            "read:objects",
+            "update:objects",
+            "delete:objects",
+            "create:app-users",
+            "read:app-users",
+            "update:app-users",
+            "delete:app-users",
+            "create:web-users",
+            "read:web-users",
+            "update:web-users",
+            "remove:web-users",
+            "manage:grants",
+            "manage:api",
+            "manage:indexes",
+            "manage:webhooks",
+            "read:audit-logs",
+            "read:sync-diagnostics",
+            "read:diagnostic-reports",
+            "read:diagnostics",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "view-logs",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-instance",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-alerts:rule",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "execute",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "build-container",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "*",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "draft",
+                "parents": [
+                  {
+                    "id": "$actor.id",
+                    "model": "user",
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "type": "APP",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "shared": "true",
+                  "type": "USER",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:private-key",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "*",
+                "model": "app-container:version",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+            "delete",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:build",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app-container:configuration",
+                    "parents": [
+                      {
+                        "id": "*",
+                        "model": "app",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:configuration",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "test",
+            "delete-invocations",
+            "read-invocations",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "railgun:configuration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "update",
+            "reply",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "intercom:ticket",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    "type": "AUTH.POLICY_DELETED",
+  },
+]
+`;
+
+exports[`policies > locking an org should emit invalidation events 1`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@example.com",
+      "org_id": "5e6f5519ede3631176831f4c",
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+]
+`;
+
+exports[`policies > should generate policies for upserted organization 1`] = `
+[
+  {
+    "description": "The holder of this policy can perform all operations within an organization",
+    "managed": true,
+    "name": "owner",
+    "org_id": "5e6f5519ede3631176831f4c",
+    "statements": [
+      {
+        "actions": [
+          "update-billing",
+          "update",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "5e6f5519ede3631176831f4c",
+              "model": "organization",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "upgrade",
+          "downgrade",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "plan",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "acquire-token",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "integration",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "5e6f5519ede3631176831f4c",
+              "model": "organization",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "create",
+          "revoke",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "labels": {
+                "user_id": "$actor.id",
+              },
+              "model": "token",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "manage-developer-invitations",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "5e6f5519ede3631176831f4c",
+              "model": "organization",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "role",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "manage-org-role-assignments",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "user",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "policy",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "info",
+          "create",
+          "update",
+          "delete",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "sso-config",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "write",
+          "create",
+          "delete",
+          "update",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app",
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "user",
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "deployment",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "deploy",
+          "info",
+          "provision",
+          "deprovision",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "deployment",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "update",
+          "delete",
+          "elevate",
+          "create:objects",
+          "read:objects",
+          "update:objects",
+          "delete:objects",
+          "create:app-users",
+          "read:app-users",
+          "update:app-users",
+          "delete:app-users",
+          "create:web-users",
+          "read:web-users",
+          "update:web-users",
+          "remove:web-users",
+          "manage:grants",
+          "manage:api",
+          "manage:indexes",
+          "manage:webhooks",
+          "read:audit-logs",
+          "read:sync-diagnostics",
+          "read:diagnostic-reports",
+          "read:diagnostics",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "deployment",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "update",
+          "view-logs",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "powersync-instance",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "update",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "powersync-alerts:rule",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "execute",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "labels": {
+                "user_id": "$actor.id",
+              },
+              "model": "build-container",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "*",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "draft",
+              "parents": [
+                {
+                  "id": "$actor.id",
+                  "model": "user",
+                },
+              ],
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "labels": {
+                "type": "APP",
+              },
+              "model": "draft",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "write",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "labels": {
+                "shared": "true",
+                "type": "USER",
+              },
+              "model": "draft",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "write",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app-container:private-key",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "*",
+              "model": "app-container:version",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "write",
+          "create",
+          "delete",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app-container:build",
+              "parents": [
+                {
+                  "id": "*",
+                  "model": "app-container:configuration",
+                  "parents": [
+                    {
+                      "id": "*",
+                      "model": "app",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app-container:configuration",
+              "parents": [
+                {
+                  "id": "*",
+                  "model": "app",
+                },
+              ],
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "update",
+          "test",
+          "delete-invocations",
+          "read-invocations",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "railgun:configuration",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "update",
+          "reply",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "intercom:ticket",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    "description": "Perform operations necessary for developing on an app",
+    "managed": true,
+    "name": "developer",
+    "org_id": "5e6f5519ede3631176831f4c",
+    "statements": [
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "5e6f5519ede3631176831f4c",
+              "model": "organization",
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "user",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "role",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "write",
+          "create",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "create",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "integration",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "create",
+          "deploy",
+          "update",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "deployment",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "elevate",
+          "create:objects",
+          "read:objects",
+          "update:objects",
+          "delete:objects",
+          "create:app-users",
+          "read:app-users",
+          "update:app-users",
+          "delete:app-users",
+          "read:web-users",
+          "manage:grants",
+          "manage:api",
+          "manage:indexes",
+          "manage:webhooks",
+          "read:audit-logs",
+          "read:sync-diagnostics",
+          "read:diagnostic-reports",
+          "read:diagnostics",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "deployment",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "update",
+          "view-logs",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "powersync-instance",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "update",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "powersync-alerts:rule",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "execute",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "labels": {
+                "user_id": "$actor.id",
+              },
+              "model": "build-container",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "*",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "draft",
+              "parents": [
+                {
+                  "id": "$actor.id",
+                  "model": "user",
+                },
+              ],
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "labels": {
+                "type": "APP",
+              },
+              "model": "draft",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "write",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "labels": {
+                "shared": "true",
+                "type": "USER",
+              },
+              "model": "draft",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "write",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app-container:private-key",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "*",
+              "model": "app-container:version",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "write",
+          "create",
+          "delete",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app-container:build",
+              "parents": [
+                {
+                  "id": "*",
+                  "model": "app-container:configuration",
+                  "parents": [
+                    {
+                      "id": "*",
+                      "model": "app",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "app-container:configuration",
+              "parents": [
+                {
+                  "id": "*",
+                  "model": "app",
+                },
+              ],
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "read",
+          "create",
+          "revoke",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "labels": {
+                "user_id": "$actor.id",
+              },
+              "model": "token",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "delete",
+          "update",
+          "test",
+          "delete-invocations",
+          "read-invocations",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "railgun:configuration",
+            },
+          },
+        ],
+      },
+      {
+        "actions": [
+          "create",
+          "read",
+          "update",
+          "reply",
+        ],
+        "resources": [
+          {
+            "scope": "5e6f5519ede3631176831f4c",
+            "selector": {
+              "id": "*",
+              "model": "intercom:ticket",
+            },
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`policies > should generate policies for upserted organization 2`] = `
+[
+  {
+    "managed": true,
+    "name": "Owner",
+    "org_id": "5e6f5519ede3631176831f4c",
+    "policy_ids": 1,
+  },
+  {
+    "managed": true,
+    "name": "Developer",
+    "org_id": "5e6f5519ede3631176831f4c",
+    "policy_ids": 1,
+  },
+]
+`;
+
+exports[`policies > should generate policies for upserted organization 3`] = `
+[
+  {
+    "payload": {
+      "managed": true,
+      "name": "Developer",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "policy_ids": 1,
+    },
+    "type": "AUTH.ROLE_CREATED",
+  },
+  {
+    "payload": {
+      "managed": true,
+      "name": "Owner",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "policy_ids": 1,
+    },
+    "type": "AUTH.ROLE_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "Perform operations necessary for developing on an app",
+      "managed": true,
+      "name": "developer",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "statements": [
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "user",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "role",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "integration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+            "deploy",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "elevate",
+            "create:objects",
+            "read:objects",
+            "update:objects",
+            "delete:objects",
+            "create:app-users",
+            "read:app-users",
+            "update:app-users",
+            "delete:app-users",
+            "read:web-users",
+            "manage:grants",
+            "manage:api",
+            "manage:indexes",
+            "manage:webhooks",
+            "read:audit-logs",
+            "read:sync-diagnostics",
+            "read:diagnostic-reports",
+            "read:diagnostics",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "view-logs",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-instance",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-alerts:rule",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "execute",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "build-container",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "*",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "draft",
+                "parents": [
+                  {
+                    "id": "$actor.id",
+                    "model": "user",
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "type": "APP",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "shared": "true",
+                  "type": "USER",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:private-key",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "*",
+                "model": "app-container:version",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+            "delete",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:build",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app-container:configuration",
+                    "parents": [
+                      {
+                        "id": "*",
+                        "model": "app",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:configuration",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+            "revoke",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "token",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "test",
+            "delete-invocations",
+            "read-invocations",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "railgun:configuration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "update",
+            "reply",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "intercom:ticket",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    "type": "AUTH.POLICY_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "The holder of this policy can perform all operations within an organization",
+      "managed": true,
+      "name": "owner",
+      "org_id": "5e6f5519ede3631176831f4c",
+      "statements": [
+        {
+          "actions": [
+            "update-billing",
+            "update",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "upgrade",
+            "downgrade",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "plan",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "acquire-token",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "integration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "create",
+            "revoke",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "token",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "manage-developer-invitations",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "5e6f5519ede3631176831f4c",
+                "model": "organization",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "role",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "manage-org-role-assignments",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "user",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "policy",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "info",
+            "create",
+            "update",
+            "delete",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "sso-config",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+            "delete",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app",
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "user",
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "deploy",
+            "info",
+            "provision",
+            "deprovision",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "update",
+            "delete",
+            "elevate",
+            "create:objects",
+            "read:objects",
+            "update:objects",
+            "delete:objects",
+            "create:app-users",
+            "read:app-users",
+            "update:app-users",
+            "delete:app-users",
+            "create:web-users",
+            "read:web-users",
+            "update:web-users",
+            "remove:web-users",
+            "manage:grants",
+            "manage:api",
+            "manage:indexes",
+            "manage:webhooks",
+            "read:audit-logs",
+            "read:sync-diagnostics",
+            "read:diagnostic-reports",
+            "read:diagnostics",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "deployment",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "view-logs",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-instance",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "powersync-alerts:rule",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "execute",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "labels": {
+                  "user_id": "$actor.id",
+                },
+                "model": "build-container",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "*",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "draft",
+                "parents": [
+                  {
+                    "id": "$actor.id",
+                    "model": "user",
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "type": "APP",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "labels": {
+                  "shared": "true",
+                  "type": "USER",
+                },
+                "model": "draft",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "write",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:private-key",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+          ],
+          "resources": [
+            {
+              "selector": {
+                "id": "*",
+                "model": "app-container:version",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "read",
+            "write",
+            "create",
+            "delete",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:build",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app-container:configuration",
+                    "parents": [
+                      {
+                        "id": "*",
+                        "model": "app",
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "app-container:configuration",
+                "parents": [
+                  {
+                    "id": "*",
+                    "model": "app",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "delete",
+            "update",
+            "test",
+            "delete-invocations",
+            "read-invocations",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "railgun:configuration",
+              },
+            },
+          ],
+        },
+        {
+          "actions": [
+            "create",
+            "read",
+            "update",
+            "reply",
+          ],
+          "resources": [
+            {
+              "scope": "5e6f5519ede3631176831f4c",
+              "selector": {
+                "id": "*",
+                "model": "intercom:ticket",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    "type": "AUTH.POLICY_CREATED",
+  },
+]
+`;

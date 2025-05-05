@@ -1,0 +1,65 @@
+name: Publish Packages
+
+on:
+  push:
+    branches:
+    - '**'
+    tags-ignore:
+    - '**'
+
+env:
+  SECRETS: ${{ toJSON(secrets) }}
+
+jobs:
+  build-and-publish:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        repository: journeyapps-platform/ci-actions
+        token: ${{ secrets.SHARED_GH_TOKEN }}
+        path: .github/ci
+        ref: v1
+
+    - name: Setup NodeJS
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install PNPM
+      run: npm i -g pnpm@9
+    - name: Install Dependencies
+      uses: ./.github/ci/actions/npm-install
+      with:
+        client: pnpm
+
+    - name: Build Packages
+      run: yarn build:packages
+
+    - name: Publish Dependencies
+      uses: ./.github/ci/actions/pnpm-publish
+      with:
+        dev: ${{ github.ref != 'refs/heads/master' }}
+        version-cli: lerno
+
+  release-docker-image:
+    name: Release Docker Image
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        repository: journeyapps-platform/ci-actions
+        token: ${{ secrets.SHARED_GH_TOKEN }}
+        path: .github/ci
+        ref: v1
+
+    - uses: ./.github/ci/actions/docker-build
+      name: Docker build
+      with:
+        tags: latest
+        multi-arch: true
+        push: true

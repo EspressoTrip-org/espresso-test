@@ -1,0 +1,210 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`policies > policy-auth > should only return policies authorized to read 1`] = `
+[
+  {
+    "name": "Scoped Policy 2",
+    "org_id": "5f8ec0f7dbfb68e57f3bfa23",
+    "statements": [],
+  },
+  {
+    "name": "Scoped Policy 1",
+    "org_id": "5f8ec0f7dbfb68e57f3bfa23",
+    "statements": [],
+  },
+]
+`;
+
+exports[`policies > policy-crud > should list policies by scope 1`] = `
+[
+  {
+    "name": "Scoped Policy",
+    "org_id": "123",
+    "statements": [],
+  },
+]
+`;
+
+exports[`policies > policy-crud > should list policies by scope 2`] = `
+[
+  {
+    "name": "Unscoped Policy",
+    "statements": [],
+  },
+]
+`;
+
+exports[`policies > policy-crud > should remove associations from related resources on delete 1`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "policy",
+      "org_id": "123",
+      "statements": [],
+    },
+    "type": "AUTH.POLICY_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "email": "test@journeyapps.com",
+      "org_id": "123",
+      "policy_ids": [
+        "5e6f5519ede3631176831f4c",
+      ],
+    },
+    "type": "AUTH.USER_ASSIGNMENTS_CHANGED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "test token",
+      "org_id": "123",
+      "policy_ids": [
+        "5e6f5519ede3631176831f4c",
+      ],
+    },
+    "type": "AUTH.TOKEN_UPDATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "test-role",
+      "org_id": "123",
+      "policy_ids": [
+        "5e6f5519ede3631176831f4c",
+      ],
+    },
+    "type": "AUTH.ROLE_UPDATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "policy",
+      "org_id": "123",
+      "statements": [],
+    },
+    "type": "AUTH.POLICY_DELETED",
+  },
+]
+`;
+
+exports[`policies > policy-crud > should successfully create a scoped policy 1`] = `
+{
+  "description": "Some policy description",
+  "name": "Some policy name",
+  "org_id": "123",
+  "statements": [
+    {
+      "actions": [
+        "create",
+        "read",
+      ],
+      "resources": [
+        {
+          "scope": "*",
+          "selector": {
+            "id": "*",
+            "model": "*",
+          },
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`policies > policy-crud > should successfully create a scoped policy 2`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "Some policy description",
+      "name": "Some policy name",
+      "org_id": "123",
+      "statements": [
+        {
+          "actions": [
+            "create",
+            "read",
+          ],
+          "resources": [
+            {
+              "scope": "*",
+              "selector": {
+                "id": "*",
+                "model": "*",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    "type": "AUTH.POLICY_CREATED",
+  },
+]
+`;
+
+exports[`policies > policy-crud > should successfully update a policy 1`] = `
+{
+  "name": "Updated Policy",
+  "org_id": "123",
+  "statements": [],
+}
+`;
+
+exports[`policies > policy-crud > should successfully update a policy 2`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "policy",
+      "org_id": "123",
+      "statements": [],
+    },
+    "type": "AUTH.POLICY_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "name": "Updated Policy",
+      "org_id": "123",
+      "statements": [],
+    },
+    "type": "AUTH.POLICY_UPDATED",
+  },
+]
+`;

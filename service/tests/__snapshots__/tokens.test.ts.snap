@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tokens > should list tokens by scope 1`] = `
+[
+  {
+    "description": "scoped",
+    "org_id": "123",
+    "policy_ids": [],
+  },
+]
+`;
+
+exports[`tokens > should list tokens by scope 2`] = `
+[
+  {
+    "description": "unscoped",
+    "policy_ids": [],
+  },
+]
+`;
+
+exports[`tokens > should successfully update a token 1`] = `
+{
+  "description": "Updated Token",
+  "org_id": "123",
+  "policy_ids": [],
+}
+`;
+
+exports[`tokens > should successfully update a token 2`] = `
+[
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "test token",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.TOKEN_CREATED",
+  },
+  {
+    "metadata": {
+      "actor": {
+        "type": "system",
+      },
+    },
+    "payload": {
+      "description": "Updated Token",
+      "org_id": "123",
+      "policy_ids": [],
+    },
+    "type": "AUTH.TOKEN_UPDATED",
+  },
+]
+`;

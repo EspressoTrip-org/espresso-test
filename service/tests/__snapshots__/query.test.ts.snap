@@ -1,0 +1,99 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`policy queries > policy statements should be interpolated on request 1`] = `
+[
+  {
+    "id": "5e6f5519ede3631176831f4c",
+    "org_id": "5f2ab36c60d2294576efa646",
+    "statements": [
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "scope": "5f2ab36c60d2294576efa646",
+            "selector": {
+              "id": "*",
+              "model": "draft",
+              "parents": [
+                {
+                  "id": "5e6f5519ede3631176832f4a",
+                  "model": "user",
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`policy queries > return locked policy for user when org is locked 1`] = `
+[
+  {
+    "description": "Limited set of permissions for locked organizations",
+    "name": "locked",
+    "statements": [
+      {
+        "actions": [
+          "read",
+        ],
+        "resources": [
+          {
+            "selector": {
+              "id": "5f2ab78a678d1d478d17e5cf",
+              "model": "organization",
+            },
+          },
+          {
+            "scope": "5f2ab78a678d1d478d17e5cf",
+            "selector": {
+              "id": "*",
+              "model": "app",
+            },
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`policy queries > return no policies for user due to permissions 1`] = `[]`;
+
+exports[`policy queries > return policies for token 1`] = `
+[
+  {
+    "id": "5e6f5519ede3631176831f4c",
+    "org_id": "5f2ab36c60d2294576efa646",
+    "statements": [],
+  },
+]
+`;
+
+exports[`policy queries > return policies for user 1`] = `
+[
+  {
+    "id": "5e6f5519ede3631176831f4c",
+    "org_id": "5f2ab36c60d2294576efa646",
+    "statements": [],
+  },
+]
+`;
+
+exports[`policy queries > return policies for user, filtering out those for locked orgs 1`] = `
+[
+  {
+    "id": "5e6f5519ede3631176831f4c",
+    "org_id": "5f2ab36c60d2294576efa646",
+    "statements": [],
+  },
+  {
+    "id": "5f3d63ce7a73979876d9c4c7",
+    "statements": [],
+  },
+]
+`;

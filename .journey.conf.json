@@ -1,0 +1,160 @@
+{
+  "project": "cardinal",
+  "bot": {
+    "checks": {
+      "version": true
+    }
+  },
+  "transformers": [
+    "micro-service"
+  ],
+  "partials": {
+    "default": {
+      "monitoring": {
+        "alert_rules": [
+          {
+            "name": "CardinalResourceConsumerStuck",
+            "type": "Increase",
+            "metric": "kafka_events_failed_total",
+            "labels": {
+              "group_id": "cardinal.resource-operation-events.01"
+            }
+          },
+          {
+            "name": "CardinalQueueDepth",
+            "type": "MaxOverTime",
+            "metric": "api_requests_queue_depth",
+            "above": 15,
+            "for": "15m"
+          },
+          {
+            "name": "CardinalRequestsPerSecond",
+            "type": "Rate",
+            "metric": "api_requests_total",
+            "for": "10m",
+            "severity": "warning",
+            "above": 10
+          }
+        ]
+      },
+      "autoscaling": {
+        "metrics": [
+          {
+            "type": "Pods",
+            "metric": "api_requests_per_second",
+            "target_type": "AverageValue",
+            "value": "3"
+          }
+        ]
+      },
+      "post_deploy_jobs": [
+        {
+          "name": "migration",
+          "args": [
+            "./service/node_modules/.bin/micro-migrate",
+            "--dir=service/dist/db",
+            "up"
+          ],
+          "resources": {
+            "requests": {
+              "memory": "1Gi",
+              "cpu": "100m"
+            },
+            "limits": {
+              "memory": "1Gi",
+              "cpu": "1"
+            }
+          }
+        }
+      ],
+      "variables": {
+        "standard": {
+          "PORT": "80"
+        }
+      }
+    }
+  },
+  "environments": [
+    {
+      "name": "staging",
+      "extends": [
+        "default"
+      ],
+      "autoscaling": {
+        "min": 1
+      },
+      "resources": {
+        "requests": {
+          "memory": "170Mi",
+          "cpu": "300m"
+        },
+        "limits": {
+          "memory": "170Mi"
+        }
+      },
+      "cluster": {
+        "stack": "journeyapps-platform/shared-services/staging"
+      },
+      "atlas": {
+        "stack": "journeyapps-platform/shared-services-mongodb/staging",
+        "cluster": "clusters.primary",
+        "database": "cardinal"
+      },
+      "kafka": {
+        "stack": "journeyapps-platform/shared-services-kafka/staging"
+      },
+      "domain": "cardinal.staging.journeyapps.com",
+      "variables": {
+        "standard": {
+          "ACCOUNTS_CLIENT_ID": "Q8xv6I1QYWW5NMzJVMNJrct6QYP8lzcFgZXrFXbVfGU",
+          "LOG_LEVEL": "debug",
+          "JWT_ISSUER": "https://accounts.staging.journeyapps.com"
+        },
+        "sealed": {
+          "ACCOUNTS_CLIENT_SECRET": "AgB4P3XtW7FKMA/JVYixNxYpySTb6N6H+rePSk9XVcSspDea63S211op557V08IHRBYs70L2I3Uu4iQEj45jLl8Rn5/bjHVL65QoPHY9cgz/kmyUMqonZLLjGTppzCmMKgUPdzKdM58Y/JscfNyPbkSPSKZJ9Xss3f0ULvOPr+m+McUpkaQHSCtR4XAnJuq+hP91+PRMJ0vFgdgDloxAfVcIH4yDdwvjIfg67Qs+c9RLa6hft/KtFiWdS8E3faijcUU2ylH5jsJo3HEkTvFnQLxkw9MxZbYhGaVgepZO7ypRMO5tcHApqhGonC0LQRq48vgauU/hQRNqUQCXl3taVAwpKoi8fSFSWHGRGx1VI0BhcUufDI5r4xeYJJEg3kRwyWT12Uw9ohui3wD0sqp4QMPBiP/Z5JeGczWkcnmdv4Kls4gJ+yBGMBeudo2lRGVbKRYvV06Tp3I7vqOtzWT4zjm1PF86OXF1rNQjUaIsnehyyfIwAsXZsCRLqyMicP8Gv2bc5jCcWwnKOpSM3Jjp6BONb5UrX/fD3bYvCmbxm2jDyrusMo0zy+5tya75BoTJN2UlOi94ZrhGrTAwEw12BTlV14hnxCSwTsncmKRJZnSVbw06a3utsX6mtJkHfIKuc6kKXysJ+0KADpvSp/3MexiJd4TbYUfHoDp1hSSlKUaDiqwKW5KR5sjp2HMAnU+LFIz+Z3lOQdZU1GTyMBBIoKuxFJI0YWwVdmSNvoCaaZvPbkpVmtq4CJ3kdU3L"
+        }
+      }
+    },
+    {
+      "name": "production",
+      "extends": [
+        "default"
+      ],
+      "cluster": {
+        "stack": "journeyapps-platform/shared-services/production"
+      },
+      "kafka": {
+        "stack": "journeyapps-platform/shared-services-kafka/production"
+      },
+      "atlas": {
+        "stack": "journeyapps-platform/shared-services-mongodb/production",
+        "cluster": "clusters.primary",
+        "database": "cardinal"
+      },
+      "resources": {
+        "requests": {
+          "memory": "200Mi",
+          "cpu": "300m"
+        },
+        "limits": {
+          "memory": "200Mi"
+        }
+      },
+      "domain": "cardinal.journeyapps.com",
+      "variables": {
+        "standard": {
+          "ACCOUNTS_CLIENT_ID": "q-ljn9HvP26LOdVQDtquMNhbPceMK0admDZw3xPHKyw",
+          "JWT_ISSUER": "https://accounts.journeyapps.com"
+        },
+        "sealed": {
+          "ACCOUNTS_CLIENT_SECRET": "AgCA/Kb1BFHosV/ANkxoUGTi71w1ScktfzLp7bikJFPzlhYNJnNb2Etj0pDi1je12qj2fYez/j5wBak6+Me8G8JuIHlzSPcKoPEDe16LZiiSfPm0+7iaZ+wZvQmk9X/pKMVVOP90kCc3+nh1GMel6QHDBY+hu3DeRN8aYFnDVC4UOXVNbG1/e7SXPn1G+c4cRi6aVHVuDTHMoL1TIQ24ZQRWYkcic1powrcEannLIt9kW1pGQ9Khi1BuJEeN8uEAJuS3uciZe8xteu4KtyS43fzPqYvgz3c77bigKIX3XtLyA3BYlGhxKBhSX2st/6FZ4PwIUVeWXWWYJ5165VQ7kP/wYHmEt5CdKNbma05GXAXz7s6ZcAocLAuXNF6YZ+HzMNL7Hh8Ea3AXeTL7EbDfQzn4f3/rsiqR6fdtWrl2mWniVG//G4t9Xxb4n3SxfKXGMqLDH+0Rvd5OiWi97eJHrm1tjaiytQVvR7XtER+vdauVG/fcpmZ3DyOp+ujzDpM3r04XtLc0RbpU/LUDUy2JJZXl3tCc963GzwxMO1qSDcLiIRMtcrgTlkIiXu1TsYgwgeUmvK6C1wow5RKVocU9Kw9At0Ce2mNOeLCiMiI9qIaykLwqquqCt672TI9ySZtPL9TreUkIbJI5uGrnx2z28ttxLlIf9AAcWkN4aZjtkQVyUhMaME0aPTSQ2R1GIwFvet8OnKngPc3uRqJ1B5xwBrKfdUxZyh0mTPdCMEWLkXOIzIBdE9eQixLhga34"
+        }
+      }
+    }
+  ],
+  "ci": {
+    "type": "github",
+    "organization": "journeyapps-platform",
+    "project": "cardinal"
+  }
+}

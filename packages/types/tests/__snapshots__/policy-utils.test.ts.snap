@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`policy-utils > policy deserialization 1`] = `
+[
+  {
+    "action": "read",
+    "resource": {
+      "scope": "123",
+      "selector": {
+        "id": "*",
+        "model": "draft",
+        "parents": [
+          {
+            "id": "1",
+            "model": "user",
+          },
+        ],
+      },
+    },
+  },
+  {
+    "action": "write",
+    "resource": {
+      "scope": "123",
+      "selector": {
+        "id": "*",
+        "model": "draft",
+        "parents": [
+          {
+            "id": "1",
+            "model": "user",
+          },
+        ],
+      },
+    },
+  },
+  {
+    "action": "list",
+    "resource": {
+      "scope": [
+        "123",
+        "456",
+      ],
+      "selector": {
+        "id": "*",
+        "model": [
+          "app",
+          "draft",
+        ],
+      },
+    },
+  },
+  {
+    "action": "*",
+    "resource": {
+      "scope": "*",
+      "selector": {
+        "id": [
+          "1",
+          "2",
+        ],
+        "model": "user",
+      },
+    },
+  },
+  {
+    "action": "read",
+    "effect": "Deny",
+    "resource": {
+      "scope": "123",
+      "selector": {
+        "id": "2",
+        "model": "user",
+      },
+    },
+  },
+]
+`;
