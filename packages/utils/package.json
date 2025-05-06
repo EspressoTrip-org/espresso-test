@@ -1,7 +1,7 @@
 {
   "name": "@journeyapps-platform/cardinal-utils",
   "repository": "https://github.com/journeyapps-platform/cardinal",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "main": "dist/index",
   "types": "dist/index",
   "license": "UNLICENCED",
