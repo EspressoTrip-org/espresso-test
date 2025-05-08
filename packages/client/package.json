@@ -1,7 +1,7 @@
 {
   "name": "@journeyapps-platform/sdk-cardinal",
   "repository": "https://github.com/journeyapps-platform/journey-sdk",
-  "version": "5.1.6",
+  "version": "5.1.7",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
